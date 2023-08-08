@@ -2,26 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer components {
+  @font-face {
+      font-family: 'neueb';
+      src: url('../public/fonts/HelveticaNeueLTStd-Bd.ttf') format('truetype');
+      /* Add additional font formats if needed */
+      font-weight: normal;
+      font-style: normal;
+    }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    @font-face {
+      font-family: 'neuelt';
+      src: url('../public/fonts/HelveticaNeueLTStd-Lt.ttf') format('truetype');
+      /* Add additional font formats if needed */
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'neuemd';
+      src: url('../public/fonts/HelveticaNeueLTStd-Md.ttf') format('truetype');
+      /* Add additional font formats if needed */
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'neuerom';
+      src: url('../public/fonts/HelveticaNeueLTStd-Roman.ttf') format('truetype');
+      /* Add additional font formats if needed */
+      font-weight: normal;
+      font-style: normal;
+    }
+
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+  @layer utilities {
+    .snap {
+      scroll-snap-type: var(--scroll-snap-direction) var(--scroll-snap-constraint);
+    }
+    .snap-y {
+      --scroll-snap-direction: x;
+    }
+    .snap-mandatory {
+      --scroll-snap-constraint: mandatory;
+    }
+    .snap-start {
+      scroll-snap-align: start;
+    }
+  }
